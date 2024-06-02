@@ -1,4 +1,4 @@
-package com.demo.country
+package com.demo.countryapp
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background

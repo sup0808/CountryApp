@@ -1,4 +1,4 @@
-package com.demo.country
+package com.demo.countryapp
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

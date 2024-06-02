@@ -1,4 +1,4 @@
-package com.demo.country
+package com.demo.countryapp
 
 import org.junit.Test
 
