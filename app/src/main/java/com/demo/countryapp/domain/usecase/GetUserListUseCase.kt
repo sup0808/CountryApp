@@ -3,8 +3,10 @@ package com.demo.countryapp.domain.usecase
 import com.demo.countryapp.Common.Resource
 import com.demo.countryapp.domain.model.User
 import com.demo.countryapp.domain.repository.UserRepo
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 
 class GetUserListUseCase(private val userRepo: UserRepo) {
 
@@ -16,5 +18,5 @@ class GetUserListUseCase(private val userRepo: UserRepo) {
         catch (e : Exception){
             emit(Resource.Error(message = e.message.toString()))
         }
-    }
+    }.flowOn(Dispatchers.IO)
 }

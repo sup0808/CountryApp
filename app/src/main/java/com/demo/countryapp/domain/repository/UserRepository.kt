@@ -4,5 +4,5 @@ import com.demo.countryapp.domain.model.User
 
 interface UserRepo
 {
-    fun getUserList(): List<User>
+  suspend  fun getUserList(): List<User>
 }
