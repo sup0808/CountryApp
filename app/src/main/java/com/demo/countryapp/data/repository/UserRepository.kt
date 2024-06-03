@@ -7,5 +7,7 @@ interface UserRepo
 {
   suspend  fun getUserList(): List<User>
 
+  suspend  fun getMoreUserList(): List<User>
+
   suspend fun getCountryList() : CountryDTO
 }

@@ -19,8 +19,7 @@ class CountryListActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel = ViewModelProvider(this)[CountryListViewModel::class.java]
-        println("ViewModel called")
-        viewModel.getCountryList()
+
         loadCountryData()
     }
 
@@ -28,7 +27,7 @@ class CountryListActivity : AppCompatActivity() {
         lifecycleScope.launch {
 
 
-            viewModel.list.collect {
+            viewModel.userlist.collect {
                 when (it) {
                     is Resource.Loading -> {
                         Toast.makeText(this@CountryListActivity, "Loading............", Toast.LENGTH_LONG).show()
@@ -37,7 +36,7 @@ class CountryListActivity : AppCompatActivity() {
                     is Resource.Success -> {
                         Toast.makeText(
                             this@CountryListActivity,
-                            "Data ............ ${it.data?.record?.size}",
+                            "Data ............ ${it.data?.size}",
                             Toast.LENGTH_LONG
                         ).show()
                     }

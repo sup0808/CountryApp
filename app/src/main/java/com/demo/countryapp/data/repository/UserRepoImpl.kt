@@ -9,8 +9,6 @@ class UserRepoImpl(private  val apiService: ApiService): UserRepo {
     override suspend fun getUserList(): List<User> {
         val data = apiService.getUserList();
         return  data.map {
-            println("Loading Data ")
-            println("cmcm"+it.userId)
             it.toDomain()
         }
     }
@@ -19,15 +17,13 @@ class UserRepoImpl(private  val apiService: ApiService): UserRepo {
         return apiService.getCountryList()
     }
 
-    /*
-    * override suspend fun getUserList(): List<User> {
+    override suspend fun getMoreUserList(): List<User> {
         val data = apiService.getUserList();
-        return  data.body()!!.users.map {
-            println("Loading Data ")
-            println("cmcm"+it.userId)
+        return  data.map {
             it.toDomain()
         }
-    }*/
+    }
+
 
 
 
